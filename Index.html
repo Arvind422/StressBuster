@@ -7,23 +7,27 @@
     <style></style>
     
 </head>
-<audio id="impactSound" src="sounds/test.mp3"></audio>
+<audio id="KinfeSound" src="sounds/Knife.mp3"></audio>
+<audio id="BombSound" src="sounds/Bomb.mp3"></audio>
+<audio id="SwordSound" src="sounds/Sword.mp3"></audio>
+<audio id="GunSound" src="sounds/Gun.mp3"></audio>
+
 <body>
+
+    <h2>Points: <span id="points">0</span></h2>
     <div id="welcomePopup" class="show">
         <h1>Welcome to Stress Buster!</h1>
         <p>Get ready to have some fun!</p>
     </div>
 
-    <input type="file" id="imageInput">
     <canvas id="gameCanvas" width="1300" height="500"></canvas>
-    <div>
+    
+    <div class = 'alcenter'><input type="file" id="imageInput"></div>
+    <div class = 'alcenter'>
         <button id="knifeButton">Knife</button>
         <button id="swordButton">Sword</button>
         <button id="bombButton">Bomb</button>
         <button id="gunButton">Gun</button>
-    </div>
-    <div>
-        <h2>Points: <span id="points">0</span></h2>
     </div>
 
     <div id="impactContainer"></div>

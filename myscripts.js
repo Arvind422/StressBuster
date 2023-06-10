@@ -94,7 +94,7 @@ function handleAvatarClick(event) {
         impactCanvas.style.left = `${clickX - impactRadius}px`;
         impactCanvas.style.top = `${clickY - impactRadius}px`;
         document.getElementById("impactContainer").appendChild(impactCanvas);
-        document.getElementById("impactSound").play();
+        //document.getElementById("KinfeSound").play();
 
 
         const impactFrames = 25; // Number of animation frames
@@ -121,9 +121,23 @@ function handleAvatarClick(event) {
                 impactCanvas.remove();
             }
         }, 50);
-
+        console.log("Selected Weapon ::: ",selectedWeapon.type);
+            // Play impact sound effect based on current weapon
+        if (selectedWeapon.type == "Knife") {
+            document.getElementById("KinfeSound").play();
+        } 
+        else if (selectedWeapon.type == "Sword") {
+            document.getElementById("SwordSound").play();
+        }   
+        else if (selectedWeapon.type == "Bomb") {
+            document.getElementById("BombSound").play();
+        }  
+        else if (selectedWeapon.type == "Gun") {
+            document.getElementById("GunSound").play();
+        }  
+        // "Bomb", "Gun"
         // Play impact sound effect
-        document.getElementById("impactSound").play();
+        //document.getElementById("impactSound").play();
 
         // Increment points
         points++;
@@ -176,7 +190,7 @@ function update() {
 function handleWeaponThrow(event) {
     if (selectedWeapon) {
         const weapon = {
-            type: selectedWeapon,
+            type: selectedWeapon.type,
             x: event.offsetX,
             y: event.offsetY,
             width: 50,
@@ -189,9 +203,10 @@ function handleWeaponThrow(event) {
             hit: false,
             animationFrames: 0,
         };
-
+        console.log("Weapon! ::: ",weapon);
+        console.log("Weapons ::: ",weapons);
         weapons.push(weapon);
-
+        console.log("Weapon! ::: ",weapon);
         selectedWeapon = null;
     }
 }
