@@ -85,47 +85,52 @@ function handleAvatarClick(event) {
         const impactRadius = avatarWidth / 2;
 
         // Create and animate impact animation
-    const impactCanvas = document.createElement("canvas");
-    const impactCtx = impactCanvas.getContext("2d");
-    const impactSize = impactRadius * 2;
-    impactCanvas.width = impactSize;
-    impactCanvas.height = impactSize;
-    impactCanvas.classList.add("impact-animation");
-    impactCanvas.style.left = `${clickX - impactRadius}px`;
-    impactCanvas.style.top = `${clickY - impactRadius}px`;
-    document.getElementById("impactContainer").appendChild(impactCanvas);
+        const impactCanvas = document.createElement("canvas");
+        const impactCtx = impactCanvas.getContext("2d");
+        const impactSize = impactRadius * 2;
+        impactCanvas.width = impactSize;
+        impactCanvas.height = impactSize;
+        impactCanvas.classList.add("impact-animation");
+        impactCanvas.style.left = `${clickX - impactRadius}px`;
+        impactCanvas.style.top = `${clickY - impactRadius}px`;
+        document.getElementById("impactContainer").appendChild(impactCanvas);
+        document.getElementById("impactSound").play();
 
-    const impactFrames = 25; // Number of animation frames
-    let currentFrame = 0;
 
-    const impactAnimationInterval = setInterval(() => {
-        impactCtx.clearRect(0, 0, impactSize, impactSize);
+        const impactFrames = 25; // Number of animation frames
+        let currentFrame = 0;
 
-        // Draw impact animation frame
-        // Customize the code below to match your desired impact animation
+        const impactAnimationInterval = setInterval(() => {
+            impactCtx.clearRect(0, 0, impactSize, impactSize);
 
-        impactCtx.fillStyle = "red";
-        const radius = impactRadius * (currentFrame / impactFrames);
-        impactCtx.beginPath();
-        impactCtx.arc(impactSize / 2, impactSize / 2, radius, 0, Math.PI * 2);
-        impactCtx.closePath();
-        impactCtx.fill();
+            // Draw impact animation frame
+            // Customize the code below to match your desired impact animation
 
-        currentFrame++;
+            impactCtx.fillStyle = "red";
+            const radius = impactRadius * (currentFrame / impactFrames);
+            impactCtx.beginPath();
+            impactCtx.arc(impactSize / 2, impactSize / 2, radius, 0, Math.PI * 2);
+            impactCtx.closePath();
+            impactCtx.fill();
 
-        if (currentFrame >= impactFrames) {
-            // Animation ends, remove the impact animation canvas
-            clearInterval(impactAnimationInterval);
-            impactCanvas.remove();
-        }
-    }, 50);
+            currentFrame++;
 
+            if (currentFrame >= impactFrames) {
+                // Animation ends, remove the impact animation canvas
+                clearInterval(impactAnimationInterval);
+                impactCanvas.remove();
+            }
+        }, 50);
+
+        // Play impact sound effect
+        document.getElementById("impactSound").play();
 
         // Increment points
         points++;
         document.getElementById("points").textContent = points;
     }
 }
+
 
 canvas.addEventListener("click", handleAvatarClick);
 
