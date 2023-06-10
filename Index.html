@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css"  href="Styling.css">
+    <title>Stress Buster - Interactive Game</title>
+    
+    <style></style>
+    
+</head>
+<body>
+    <div id="welcomePopup" class="show">
+        <h1>Welcome to Stress Buster!</h1>
+        <p>Get ready to have some fun!</p>
+    </div>
+
+    <input type="file" id="imageInput">
+    <canvas id="gameCanvas" width="1300" height="500"></canvas>
+    <div>
+        <button id="knifeButton">Knife</button>
+        <button id="swordButton">Sword</button>
+        <button id="bombButton">Bomb</button>
+        <button id="gunButton">Gun</button>
+    </div>
+    <div>
+        <h2>Points: <span id="points">0</span></h2>
+    </div>
+
+    <div id="impactContainer"></div>
+
+    <script src="myscripts.js"></script>
+
+</body>
+</html>
