@@ -39,13 +39,27 @@ input[type="file"] {
 body h2{
   /* text-align:right; */
   position: absolute;
-  left: 91%;
+  left: 90%;
 }
 #points {
   font-size: 23px;
   font-weight: bold;
-  color: #red;
+  color: red;
 }
+
+#flashMessage {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #e5e5e5;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  display: none;
+}
+
 
 button {
   margin-right: 10px;
